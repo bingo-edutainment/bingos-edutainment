@@ -1,124 +1,212 @@
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
-html, body {
+html,
+body {
   margin: 0;
   min-height: 100%;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #080808;
-  color: #eee;
 }
 
 body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   min-height: 100vh;
-  padding: 24px;
 }
 
-.container {
+/* =========================
+   MAIN PAGE
+   ========================= */
+
+.home-page {
+  background-image: url("background.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+
+  min-height: 100vh;
+
+  font-family: "Times New Roman", Times, serif;
+}
+
+/* Main centered content */
+
+.home-container {
   width: 100%;
-  max-width: 720px;
-}
+  max-width: 850px;
 
-.card {
-  background: #111;
-  border: 1px solid #292929;
-  border-radius: 14px;
-  padding: 42px;
-  box-shadow: 0 20px 60px rgba(0,0,0,.45);
-}
+  margin: 0 auto;
 
-h1 {
-  margin: 0 0 12px;
-  font-size: clamp(42px, 9vw, 80px);
-  letter-spacing: -3px;
-}
+  padding-top: 45px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 60px;
 
-p {
-  line-height: 1.7;
-  color: #ccc;
-}
+  text-align: center;
 
-.muted { color: #888; }
-.eyebrow {
-  color: #777;
-  letter-spacing: 4px;
-  font-size: 12px;
-  font-weight: bold;
-}
-
-.button {
-  display: inline-block;
-  border: 0;
-  border-radius: 8px;
-  padding: 14px 20px;
-  margin-top: 18px;
-  font-size: 15px;
-  font-weight: bold;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.secondary {
-  background: #eee;
-  color: #111;
-}
-
-.danger {
-  width: 100%;
-  background: #b00020;
-  color: white;
-}
-
-.danger:hover { background: #d00028; }
-.danger:disabled { opacity: .5; cursor: wait; }
-
-label {
-  display: block;
-  margin: 20px 0 8px;
-  color: #ddd;
-  font-size: 14px;
-}
-
-input[type="tel"] {
-  width: 100%;
-  padding: 15px;
-  border-radius: 8px;
-  border: 1px solid #333;
-  background: #080808;
-  color: white;
-  font-size: 17px;
-}
-
-.consent {
   display: flex;
-  gap: 10px;
-  align-items: flex-start;
-  color: #999;
+  flex-direction: column;
+  align-items: center;
 }
 
-.consent input {
-  margin-top: 3px;
+/* =========================
+   BINGO PORTRAIT
+   ========================= */
+
+.portrait {
+  width: 600px;
+  height: 450px;
+
+  max-width: 100%;
+  height: auto;
+
+  object-fit: contain;
+
+  display: block;
 }
 
-.status {
-  min-height: 24px;
-  margin-top: 18px;
+/* =========================
+   RAINBOW TITLES
+   ========================= */
+
+.rainbow-title {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-weight: bold;
+
+  text-align: center;
+
+  line-height: 1.05;
+
+  margin-left: 0;
+  margin-right: 0;
 }
 
-.success { color: #76e39a; }
-.error { color: #ff6b6b; }
+/*
+   Each letter gets a different color.
+   This creates the alternating rainbow effect.
+*/
 
-.back {
+.rainbow-title span:nth-child(7n + 1) {
+  color: #ff0000;
+}
+
+.rainbow-title span:nth-child(7n + 2) {
+  color: #ff7a00;
+}
+
+.rainbow-title span:nth-child(7n + 3) {
+  color: #ffd000;
+}
+
+.rainbow-title span:nth-child(7n + 4) {
+  color: #20c820;
+}
+
+.rainbow-title span:nth-child(7n + 5) {
+  color: #008cff;
+}
+
+.rainbow-title span:nth-child(7n + 6) {
+  color: #673cff;
+}
+
+.rainbow-title span:nth-child(7n + 7) {
+  color: #d000ff;
+}
+
+/* Spaces between words */
+
+.rainbow-title .space {
   display: inline-block;
-  margin-top: 24px;
-  color: #aaa;
-  text-decoration: none;
+  width: 0.3em;
 }
 
-.back:hover { color: white; }
+/* =========================
+   MAIN TITLE
+   ========================= */
 
-@media (max-width: 600px) {
-  .card { padding: 28px 22px; }
+h1.rainbow-title {
+  font-size: clamp(42px, 7vw, 72px);
+
+  margin-top: 18px;
+  margin-bottom: 20px;
+
+  letter-spacing: 1px;
+}
+
+/* =========================
+   DESCRIPTION
+   ========================= */
+
+.description {
+  max-width: 720px;
+
+  margin: 0 auto;
+
+  color: white;
+
+  font-family: "Times New Roman", Times, serif;
+
+  font-size: 21px;
+
+  line-height: 1.45;
+
+  text-align: center;
+
+  text-shadow:
+    2px 2px 3px black,
+    -1px -1px 2px black;
+
+  margin-bottom: 28px;
+}
+
+/* =========================
+   HOTLINE LINK
+   ========================= */
+
+.hotline-link {
+  display: inline-block;
+
+  font-size: clamp(30px, 5vw, 52px);
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition: transform 0.15s ease;
+}
+
+.hotline-link:hover {
+  transform: scale(1.06);
+}
+
+.hotline-link:active {
+  transform: scale(0.98);
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 650px) {
+
+  .home-container {
+    padding-top: 25px;
+  }
+
+  .portrait {
+    width: 100%;
+    max-width: 600px;
+  }
+
+  h1.rainbow-title {
+    font-size: 42px;
+  }
+
+  .description {
+    font-size: 18px;
+  }
+
+  .hotline-link {
+    font-size: 32px;
+  }
 }

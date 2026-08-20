@@ -36,20 +36,16 @@ body {
 
   margin: 0 auto;
 
+  padding-top: 100px;
   padding-left: 20px;
   padding-right: 20px;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-bottom: 60px;
 
   text-align: center;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  /* Vertically center the entire website */
-  min-height: 100vh;
-  justify-content: center;
 }
 
 /* =========================
@@ -78,7 +74,7 @@ body {
 
   text-align: center;
 
-  line-height: 1;
+  line-height: 1.05;
 
   margin-left: 0;
   margin-right: 0;
@@ -193,8 +189,7 @@ h1.rainbow-title {
 @media (max-width: 650px) {
 
   .home-container {
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-top: 40px;
   }
 
   .portrait {

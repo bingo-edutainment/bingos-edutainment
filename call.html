@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CALL ME</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <section class="card call-card">
+      <p class="eyebrow">YOU WERE WARNED</p>
+      <h1>CALL ME</h1>
+      <p class="muted">
+        Enter your phone number if you want to receive the prerecorded horror call.
+      </p>
+
+      <form id="callForm">
+        <label for="phone">Phone number</label>
+        <input
+          id="phone"
+          name="phone"
+          type="tel"
+          inputmode="tel"
+          autocomplete="tel"
+          placeholder="+1 555 123 4567"
+          required
+        >
+
+        <label class="consent">
+          <input id="consent" type="checkbox" required>
+          <span>I am requesting this call and consent to receiving it.</span>
+        </label>
+
+        <button class="button danger" type="submit" id="callButton">
+          CALL ME
+        </button>
+      </form>
+
+      <p id="status" class="status" aria-live="polite"></p>
+
+      <a class="back" href="index.html">← Back to main page</a>
+    </section>
+  </main>
+
+  <script>
+    // Replace this with your Cloudflare Worker URL.
+    const API_URL = "https://YOUR-WORKER.YOUR-SUBDOMAIN.workers.dev/call";
+
+    const form = document.getElementById("callForm");
+    const button = document.getElementById("callButton");
+    const status = document.getElementById("status");
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const phone = document.getElementById("phone").value.trim();
+      button.disabled = true;
+      status.textContent = "Connecting...";
+      status.className = "status";
+
+      try {
+        const response = await fetch(API_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ phone })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.error || "Unable to place the call.");
+        }
+
+        status.textContent = "The call is on its way. Answer if you dare.";
+        status.className = "status success";
+        form.reset();
+      } catch (error) {
+        status.textContent = error.message;
+        status.className = "status error";
+      } finally {
+        setTimeout(() => {
+          button.disabled = false;
+        }, 10000);
+      }
+    });
+  </script>
+</body>
+</html>

@@ -36,16 +36,20 @@ body {
 
   margin: 0 auto;
 
-  padding-top: 45px;
   padding-left: 20px;
   padding-right: 20px;
-  padding-bottom: 60px;
+  padding-top: 30px;
+  padding-bottom: 30px;
 
   text-align: center;
 
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  /* Vertically center the entire website */
+  min-height: 100vh;
+  justify-content: center;
 }
 
 /* =========================
@@ -79,7 +83,6 @@ body {
   margin-left: 0;
   margin-right: 0;
 
-  /* Prevent weird word spacing */
   word-spacing: 0;
 }
 
@@ -116,25 +119,6 @@ body {
 }
 
 /* =========================
-   WORD SPACING
-   ========================= */
-
-/*
-   The HTML contains special .space spans between
-   the words. Make them extremely small so the
-   words don't look separated on desktop.
-*/
-
-.rainbow-title .space {
-  display: inline-block;
-
-  width: 0.02em;
-
-  margin: 0;
-  padding: 0;
-}
-
-/* =========================
    MAIN TITLE
    ========================= */
 
@@ -146,7 +130,6 @@ h1.rainbow-title {
 
   letter-spacing: 1px;
 
-  /* Prevent additional spacing */
   word-spacing: 0;
 }
 
@@ -183,10 +166,7 @@ h1.rainbow-title {
 .hotline-link {
   display: inline-block;
 
-  /*
-     Smaller than the main Bingo's
-     Edutainment title.
-  */
+  /* Smaller than the main title */
   font-size: clamp(24px, 3.8vw, 42px);
 
   text-decoration: none;
@@ -214,6 +194,7 @@ h1.rainbow-title {
 
   .home-container {
     padding-top: 25px;
+    padding-bottom: 25px;
   }
 
   .portrait {

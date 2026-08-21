@@ -79,7 +79,6 @@ body {
   margin-left: 0;
   margin-right: 0;
 
-  /* Prevent weird word spacing */
   word-spacing: 0;
 }
 
@@ -116,25 +115,6 @@ body {
 }
 
 /* =========================
-   WORD SPACING
-   ========================= */
-
-/*
-   The HTML contains special .space spans between
-   the words. Make them extremely small so the
-   words don't look separated on desktop.
-*/
-
-.rainbow-title .space {
-  display: inline-block;
-
-  width: 0.02em;
-
-  margin: 0;
-  padding: 0;
-}
-
-/* =========================
    MAIN TITLE
    ========================= */
 
@@ -146,7 +126,6 @@ h1.rainbow-title {
 
   letter-spacing: 1px;
 
-  /* Prevent additional spacing */
   word-spacing: 0;
 }
 
@@ -183,10 +162,6 @@ h1.rainbow-title {
 .hotline-link {
   display: inline-block;
 
-  /*
-     Smaller than the main Bingo's
-     Edutainment title.
-  */
   font-size: clamp(24px, 3.8vw, 42px);
 
   text-decoration: none;
@@ -207,7 +182,7 @@ h1.rainbow-title {
 }
 
 /* =========================
-   MOBILE
+   MOBILE MAIN PAGE
    ========================= */
 
 @media (max-width: 650px) {
@@ -235,10 +210,9 @@ h1.rainbow-title {
 }
 
 
-
-/* =========================
+/* =========================================================
    CALL PAGE
-   ========================= */
+   ========================================================= */
 
 .call-page {
   background-image: url("background.png");
@@ -295,6 +269,16 @@ h1.rainbow-title {
   word-spacing: 0;
 }
 
+/*
+   Makes sure the special spaces used
+   by the title don't become huge gaps.
+*/
+
+.call-title span {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 /* =========================
    PHONE FORM
    ========================= */
@@ -326,7 +310,9 @@ h1.rainbow-title {
     -1px -1px 2px black;
 }
 
-/* Phone number box */
+/* =========================
+   PHONE NUMBER BOX
+   ========================= */
 
 .call-form input[type="tel"] {
   width: 100%;
@@ -360,10 +346,11 @@ h1.rainbow-title {
 
 .call-form input[type="tel"]::placeholder {
   color: #0066ff;
+
   opacity: 1;
 }
 
-/* Selected box */
+/* Focus */
 
 .call-form input[type="tel"]:focus {
   border-color: #0000ff;
@@ -372,6 +359,7 @@ h1.rainbow-title {
     0 3px 0 #000,
     0 0 12px rgba(0, 102, 255, 0.7);
 }
+
 
 /* =========================
    CALL ME BUTTON
@@ -430,6 +418,7 @@ h1.rainbow-title {
   cursor: wait;
 }
 
+
 /* =========================
    DISCLAIMER
    ========================= */
@@ -456,6 +445,7 @@ h1.rainbow-title {
     2px 2px 3px black,
     -1px -1px 2px black;
 }
+
 
 /* =========================
    CONSENT CHECKBOX
@@ -500,8 +490,9 @@ h1.rainbow-title {
   cursor: pointer;
 }
 
+
 /* =========================
-   STATUS
+   STATUS MESSAGE
    ========================= */
 
 .status {
@@ -529,8 +520,9 @@ h1.rainbow-title {
   color: #ff0000;
 }
 
+
 /* =========================
-   BACK LINK
+   BACK TO MAIN PAGE
    ========================= */
 
 .back-link {
@@ -558,6 +550,7 @@ h1.rainbow-title {
   transform: scale(1.05);
 }
 
+
 /* =========================
    CALL PAGE MOBILE
    ========================= */
@@ -581,11 +574,13 @@ h1.rainbow-title {
 
   .call-form input[type="tel"] {
     height: 54px;
+
     font-size: 19px;
   }
 
   .call-button {
     height: 58px;
+
     font-size: 30px;
   }
 

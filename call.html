@@ -109,12 +109,12 @@
 
         if (!response.ok) {
           throw new Error(
-            data.error || "Unable to place the call."
+            data.error || "Bingo is unable to place the call."
           );
         }
 
         status.textContent =
-          "The call is on its way. Answer if you dare.";
+          "Bingo is calling.";
 
         status.className = "status success";
 
